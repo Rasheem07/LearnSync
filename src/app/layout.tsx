@@ -1,6 +1,10 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navBar";
+import MaxWidthWrapper from "@/components/maxWidthWrapper";
+import SideNav from "@/components/sideNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +18,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+         <div className="font-sans w-full flex flex-row transition-transform bg-slate-100 max-screen">
+            <SideNav /> 
+            {children}
+         </div>
+      </body>
     </html>
   );
 }
