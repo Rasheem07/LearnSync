@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MaxWidthWrapper from "./maxWidthWrapper";
 import Logo from "./logo";
@@ -11,20 +12,31 @@ import {
 } from "./ui/select";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const path = usePathname();
   return (
-    <div className="sticky inset-x-0 top-0 h-14 w-full bg-white backdrop-blur-lg border-b border-gray-200 z-30 shadow-inner">
+    <div
+      className={`sticky inset-x-0 top-0 h-14 w-full ${
+        path === "/onboarding" ||
+        path === "/onboarding/register" ||
+        path === "/onboarding/verification" || 
+        path === "/onboarding/preveiw" ||
+         path === "/onboarding/preferences"
+          ? "hidden"
+          : ""
+      }  bg-white backdrop-blur-lg border-b border-gray-200 z-30 shadow-inner`}
+    >
       <MaxWidthWrapper>
         <div className="w-full flex items-center justify-between h-14 border-b border-zinc-200">
-          
           <Link href="/">
-           <Logo />
+            <Logo />
           </Link>
 
-          <ul className="flex items-center justify-between gap-8">
+          <ul className={`${path == "/"? 'hidden' : "flex"} items-center justify-between gap-8 `}>
             <div className="flex items-center gap-1 min-w-[250px] bg-slate-50 px-2.5 text-gray-900 focus-within:ring-1 ring-blue-400 border border-gray-200 rounded-lg shadow-inner transition-all motion-reduce:transform-none">
               <Search className="h-5 w-5 text-blue-500 font-extrabold" />
               <input
@@ -46,22 +58,40 @@ const Navbar = (props: Props) => {
             </Select>
 
             <Link href="/messages">
-            <MessageCircle aria-label="Messages" className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500" />
+              <MessageCircle
+                aria-label="Messages"
+                className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500"
+              />
             </Link>
 
             <Link href="/notifications">
-            <Bell aria-label="notifications" className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500" />
+              <Bell
+                aria-label="notifications"
+                className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500"
+              />
             </Link>
 
             <Link href="/settings">
-            <Settings aria-label="Settings" className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500" />
+              <Settings
+                aria-label="Settings"
+                className="font-extrabold h-5 w-5 text-gray-600 hover:text-blue-500"
+              />
             </Link>
 
             <Link href="profile">
-                <Image src="/demo-dp.avif" alt="student" height={35} width={35}  className="h-[35px] w-[35px] object-contain rounded-lg"/>
+              <Image
+                src="/demo-dp.avif"
+                alt="student"
+                height={35}
+                width={35}
+                className="h-[35px] w-[35px] object-contain rounded-lg"
+              />
             </Link>
-
           </ul>
+          <div className={`${path == "/"? 'flex' : "hidden"} items-center gap-5`}>
+            <button className="py-1 px-4 capitalize text-base ring-2 backdrop-blur-md ring-gray-600 rounded-sm shodow-inner hover:bg-slate-200">Login</button>
+            <Link href='/onboarding' className="py-1.5 px-4 capitalize text-base text-white bg-blue-500 rounded-sm shodow-inner">Get Started</Link>
+          </div>
         </div>
       </MaxWidthWrapper>
     </div>

@@ -36,10 +36,10 @@ const data = [
 
 export default function Page({}: Props) {
   return (
-    <div className="flex flex-col w-full p-5 overflow-y-scroll no-scrollbar">
+    <div className=" w-full p-5 overflow-y-scroll no-scrollbar">
       <div className="w-full flex space-x-5 ">
         <div className="grid grid-cols-3 gap-3 grid-flow-row flex-1 max-w-[73%]">
-          <div className="flex col-span-3 items-center bg-blue-500 rounded-md shadow-inner px-8 py-6 relative">
+          <div className="flex col-span-3 items-center bg-blue-500 rounded-md shadow-inner px-6 py-4 relative">
             <div className="flex flex-col space-y-2 max-w-[65%]">
               <h3 className="text-2xl text-white font-bold tracking-wider">
                 Join now and Get Discount Voucher of upto 20%
@@ -63,8 +63,8 @@ export default function Page({}: Props) {
               <CalendarFold className="h-20 w-20 text-white opacity-45 absolute right-0" />
             </div>
           </div>
-          <div className="flex flex-row bg-blue-500 rounded-md shadow-inner px-8 py-6 relative overflow-hidden">
-            <div className="flex flex-col gap-3 flex-1 max-w-[45%]">
+          <div className="flex flex-row bg-blue-500 rounded-md shadow-inner p-6 relative overflow-hidden">
+            <div className="flex flex-col gap-3 max-h-[132px] flex-1 max-w-[45%]">
               <div className="p-2 bg-white rounded-md shadow-inner max-w-fit">
                 <Check className="h-6 w-6 text-blue-500 font-bold" />
               </div>
@@ -202,9 +202,9 @@ export default function Page({}: Props) {
                     <SelectValue placeholder="time frame" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="This year's">This year's</SelectItem>
-                    <SelectItem value="This month's">This month's</SelectItem>
-                    <SelectItem value="This week's">This week's</SelectItem>
+                    <SelectItem value="This year's">This year&apos;s</SelectItem>
+                    <SelectItem value="This month's">This month&apos;s</SelectItem>
+                    <SelectItem value="This week's">This week&apos;s</SelectItem>
                   </SelectContent>
                 </Select>
                 <MoreHorizontal />

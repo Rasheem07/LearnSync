@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Page() {
   return (
-    <div className='flex flex-col w-full p-5 overflow-y-scroll no-scrollbar'>
+    <div className='w-full p-5 overflow-y-scroll no-scrollbar'>
       <header>
         <h2 className='text-lg font-bold text-gray-900 capitalize mb-2'>Popular this week</h2>
         <div className="flex flex-1 items-center gap-4 px-1 overflow-x-scroll no-scrollbar">
